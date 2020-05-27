@@ -111,5 +111,4 @@ script.py
 
 client/build
 
-stats/
-stats/*
+stats/data*.csv
