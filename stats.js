@@ -77,11 +77,19 @@ Data.getProblems((err, data) => {
                         //     type: validUsers[item.email].type,
                         //     completed: item.complete
                         // });
+                        var d = new Date(new Date(attempt.createdAt).getTime() - (attempt.elapsedTime*1000));
+                        var dformat = [d.getMonth()+1,
+                                    d.getDate(),
+                                    d.getFullYear()].join('/')+' '+
+                                    [d.getHours(),
+                                    d.getMinutes(),
+                                    d.getSeconds()].join(':');
+
                         var line = item.email + ',' +
                             'Q' + problems[item.id].index + ':'+ problems[item.id].name + ',' +
                             j + ',' + 
                             attempt.elapsedTime + ',' +
-                            new Date(new Date(attempt.createdAt).getTime() - (attempt.elapsedTime*1000)) + ',' +
+                            dformat + ',' +
                             validUsers[item.email].type + ',' +
                             item.complete + "\n";
 
